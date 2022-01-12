@@ -1,0 +1,41 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  scroll-behavior: smooth
+
+body
+  font-size: $font-size
+
+.container
+  padding: 80px 10vw
+
+%useFontBarlow
+  font-family: $font-family-barlow
+  font-weight: 600
+
+h1, h2, h3, h4, h5, h6
+  font-family: $font-family-fraunces
+  font-weight: 900
+
+p
+  @extend %useFontBarlow
+  font-size: clamp(1rem, 2.5vw, 1.2rem)
+  line-height: clamp(1.5rem, 2.5vw, 2rem)
+
+a
+  text-decoration: none
+
+[class$="--desCyan"]
+  color: $c-primary-dark-des-cyan
+  fill: $c-primary-dark-des-cyan
+
+[class$="--white"]
+  color: $c-neutral-white
+  fill: $c-neutral-white
+
+.hide-on-desktop
+  display: block
+
+.hide-on-mobile
+  display: none
