@@ -166,7 +166,7 @@ header .mobile-nav-item:hover {
 .jumbotron {
   position: relative;
   min-height: 538px;
-  background-image: url("../images/mobile/image-header.jpg");
+  background-image: url("images/mobile/image-header.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -483,7 +483,7 @@ header .mobile-nav-item:hover {
             order: 4;
   }
   .jumbotron {
-    background-image: url("../images/desktop/image-header.jpg");
+    background-image: url("images/desktop/image-header.jpg");
     height: 700px;
   }
   .section {
@@ -503,10 +503,10 @@ header .mobile-nav-item:hover {
     font-size: 1.2rem;
   }
   .services-item.graphic-design {
-    background-image: url("../images/desktop/image-graphic-design.jpg");
+    background-image: url("images/desktop/image-graphic-design.jpg");
   }
   .services-item.photography {
-    background-image: url("../images/desktop/image-photography.jpg");
+    background-image: url("images/desktop/image-photography.jpg");
   }
 }
 /*# sourceMappingURL=main.css.map */
