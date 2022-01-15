@@ -15,7 +15,7 @@ body {
   padding: 80px 10vw;
 }
 
-p, header .mobile-nav-item, .footer > h2, .footer-nav-item {
+p, .mobile-nav-item, .footer > h2, .footer-nav-item {
   font-family: "Barlow", sans-serif;
   font-weight: 600;
 }
@@ -52,16 +52,35 @@ a {
   display: none;
 }
 
-header .nav-wrapper .nav-items a, header .mobile-nav-item {
+@-webkit-keyframes drop-down {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes drop-down {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+.nav-wrapper .nav-items a, .mobile-nav-item {
   padding: 15px 30px;
   border-radius: 30px;
+  font-size: 1rem;
 }
 
 header {
   position: relative;
 }
 
-header .nav-wrapper {
+.nav-wrapper {
   font-family: "Barlow", sans-serif;
   font-weight: 600;
   color: white;
@@ -82,7 +101,7 @@ header .nav-wrapper {
   padding: 10px 25px;
 }
 
-header .nav-wrapper .nav-items {
+.nav-wrapper .nav-items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,17 +110,46 @@ header .nav-wrapper .nav-items {
   padding-right: 20px;
 }
 
-header .nav-wrapper .nav-items a {
+.nav-wrapper .nav-items a {
   color: white;
+  position: relative;
 }
 
-header .nav-wrapper .nav-items a:hover {
+.nav-wrapper .nav-items a:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background: white;
+  height: 2px;
+  border-radius: 20px;
+  display: inline-block;
+  width: 0%;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.nav-wrapper .nav-items a:not(:last-child):hover::after {
+  width: 100%;
+}
+
+.nav-wrapper .nav-items a:last-child {
   font-family: "Fraunces", serif;
   color: #25564b;
   background-color: white;
+  text-transform: uppercase;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
-header .mobile-nav {
+.nav-wrapper .nav-items a:last-child:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.mobile-nav {
   position: absolute;
   top: 100px;
   left: 0;
@@ -114,11 +162,11 @@ header .mobile-nav {
   display: none;
 }
 
-header .mobile-nav.active {
+.mobile-nav.active {
   display: block;
 }
 
-header .mobile-nav .triangle {
+.mobile-nav .triangle {
   position: absolute;
   right: 0;
   top: -30px;
@@ -129,7 +177,7 @@ header .mobile-nav .triangle {
   border-right: 30px solid white;
 }
 
-header .mobile-nav-wrapper {
+.mobile-nav-wrapper {
   position: relative;
   height: 100%;
   width: 100%;
@@ -148,11 +196,11 @@ header .mobile-nav-wrapper {
           justify-content: space-evenly;
 }
 
-header .mobile-nav-item {
+.mobile-nav-item {
   color: #818498;
 }
 
-header .mobile-nav-item:hover {
+.mobile-nav-item:hover {
   font-family: "Fraunces", serif;
   color: #25564b;
   background-color: #fad400;
@@ -260,9 +308,10 @@ header .mobile-nav-item:hover {
   left: 0;
   right: 0;
   z-index: -1;
-  background-color: #fad400;
+  background: #fad400;
   height: 6px;
   border-radius: 20px;
+  display: inline-block;
   opacity: .4;
 }
 
@@ -277,9 +326,10 @@ header .mobile-nav-item:hover {
   left: 0;
   right: 0;
   z-index: -1;
-  background-color: #fe7867;
+  background: #fe7867;
   height: 6px;
   border-radius: 20px;
+  display: inline-block;
   opacity: .4;
 }
 
@@ -455,7 +505,7 @@ header .mobile-nav-item:hover {
   color: #3e52a3;
 }
 
-@media (min-width: 762px) {
+@media (min-width: 768px) {
   .hide-on-desktop {
     display: none;
   }

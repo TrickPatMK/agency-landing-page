@@ -1,13 +1,14 @@
-@mixin linkUnderline($color)
+@mixin linkUnderline($color, $height: 6px)
   content: ''
   position: absolute
   bottom: 0
   left: 0
   right: 0
   z-index: -1
-  background-color: $color
-  height: 6px
+  background: $color
+  height: $height
   border-radius: 20px
+  display: inline-block
 
 @mixin servicesBackground
   background-size: cover

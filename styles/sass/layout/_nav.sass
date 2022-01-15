@@ -1,68 +1,84 @@
 %nav-link
   padding: 15px 30px
   border-radius: 30px
+  font-size: 1rem
 
 header
   position: relative
-  .nav-wrapper
-    font-family: $font-family-barlow
-    font-weight: 600
-    color: $c-neutral-white
-    position: absolute
-    top: 10px
-    left: 0
-    right: 0
-    z-index: 90
+.nav-wrapper
+  font-family: $font-family-barlow
+  font-weight: 600
+  color: $c-neutral-white
+  position: absolute
+  top: 10px
+  left: 0
+  right: 0
+  z-index: 90
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 10px 25px
+  .nav-items
     display: flex
-    justify-content: space-between
-    align-items: center
-    padding: 10px 25px
-    .nav-items
-      display: flex
-      width: 100%
-      gap: 20px
-      padding-right: 20px
-      a
-        @extend %nav-link
-        color: $c-neutral-white
-        &:hover
-          @include nav-hover($c-neutral-white)
-
-  .mobile-nav
-    position: absolute
-    top: 100px
-    left: 0
-    right: 0
-    margin: 0 auto
-    z-index: 90
-    background-color: $c-neutral-white
-    width: 85vw
-    height: 300px
-    display: none
-    &.active
-      display: block
-
-    .triangle
-      position: absolute
-      right: 0
-      top: -30px
-      @include triangle($c-neutral-white, 30, left)
-
-    &-wrapper
-      position: relative
-      height: 100%
-      width: 100%
-      display: flex
-      flex-direction: column
-      align-items: center
-      justify-content: space-evenly
-
-    &-item
-      @extend %useFontBarlow
+    width: 100%
+    gap: 20px
+    padding-right: 20px
+    a
       @extend %nav-link
-      color: $c-neutral-dark-grayish-blue
-      &:hover
-        @include nav-hover($c-primary-yellow)
+      color: $c-neutral-white
+      position: relative
+      &:not(:last-child)
+        &::after
+          @include linkUnderline($c-neutral-white, 2px)
+          width: 0%
+          transition: .5s
+        &:hover::after
+          width: 100%
+      &:last-child
+        font-family: $font-family-fraunces
+        color: $c-primary-dark-des-cyan
+        background-color: $c-neutral-white
+        text-transform: uppercase
+        transition: .5s
+        &:hover
+          color: $c-neutral-white
+          background: transparentize($c-neutral-white, .7)
+
+.mobile-nav
+  position: absolute
+  top: 100px
+  left: 0
+  right: 0
+  margin: 0 auto
+  z-index: 90
+  background-color: $c-neutral-white
+  width: 85vw
+  height: 300px
+  display: none
+  &.active
+    display: block
+
+  .triangle
+    position: absolute
+    right: 0
+    top: -30px
+    @include triangle($c-neutral-white, 30, left)
+
+  &-wrapper
+    position: relative
+    height: 100%
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-evenly
+
+  &-item
+    @extend %useFontBarlow
+    @extend %nav-link
+    color: $c-neutral-dark-grayish-blue
+    &:hover
+      @include nav-hover($c-primary-yellow)
 
 .trigger-btn
   padding: 5px
